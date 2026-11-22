@@ -1,0 +1,42 @@
+name: "DynoNode PR Link & WCAG 2.2 Guard"
+description: "Zero-dependency PR scanner for broken links and WCAG 2.2 AA HTML accessibility regressions (missing img alt, missing html lang, empty controls)."
+author: "Toxic Dreams (d/b/a DynoNode)"
+branding:
+  icon: "shield"
+  color: "green"
+
+inputs:
+  paths:
+    description: "Comma- or newline-separated file/directory paths to scan (defaults to git diff .md/.html files or workspace scan)."
+    required: false
+    default: ""
+  check-external-links:
+    description: "Verify external https:// links via HEAD/GET requests."
+    required: false
+    default: "true"
+  timeout-ms:
+    description: "Per-request HTTP timeout in milliseconds."
+    required: false
+    default: "6000"
+  fail-on-issues:
+    description: "Exit with code 1 when broken links or WCAG issues are detected."
+    required: false
+    default: "true"
+  github-token:
+    description: "Optional GitHub token to post or update a PR summary comment."
+    required: false
+    default: ""
+
+outputs:
+  issues-count:
+    description: "Total count of broken links plus WCAG issues detected."
+  broken-links-count:
+    description: "Count of dead local or HTTP(S) links detected."
+  wcag-issues-count:
+    description: "Count of WCAG 2.2 HTML accessibility issues detected."
+  markdown-report:
+    description: "Formatted Markdown table report for PR comments and step summaries."
+
+runs:
+  using: "node20"
+  main: "src/index.mjs"
