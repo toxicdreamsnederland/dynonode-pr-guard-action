@@ -1,0 +1,43 @@
+{
+  "name": "@dynonode/pr-guard-action",
+  "version": "1.0.0",
+  "description": "Zero-dependency GitHub Action & CLI scanning Markdown and HTML files in pull requests for dead links and WCAG 2.2 AA accessibility issues.",
+  "type": "module",
+  "main": "./src/index.mjs",
+  "bin": {
+    "dynonode-pr-guard": "./src/index.mjs"
+  },
+  "files": [
+    "action.yml",
+    "src/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test test/action.test.mjs"
+  },
+  "keywords": [
+    "github-actions",
+    "wcag",
+    "a11y",
+    "accessibility",
+    "broken-links",
+    "link-checker",
+    "eaa",
+    "pull-request",
+    "ci"
+  ],
+  "author": "Toxic Dreams (d/b/a DynoNode · KvK 74716344) <support@dynonode.com>",
+  "license": "MIT",
+  "homepage": "https://wcag.dynonode.com/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dynonode/pr-guard-action.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
